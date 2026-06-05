@@ -22,6 +22,14 @@ def list_employees(
     return {"total": total, "items": items}
 
 
+@router.get("/countries", response_model=list[str])
+def list_countries(
+    search: str | None = Query(None),
+    db: Session = Depends(get_db),
+):
+    return crud.get_countries(db, search)
+
+
 @router.post("/", response_model=schemas.EmployeeOut, status_code=201)
 def create_employee(data: schemas.EmployeeCreate, db: Session = Depends(get_db)):
     return crud.create_employee(db, data)

@@ -9,6 +9,13 @@ def get_employee(db: Session, employee_id: int):
     return db.query(Employee).filter(Employee.id == employee_id).first()
 
 
+def get_countries(db: Session, search: str | None = None):
+    query = db.query(Employee.country).distinct()
+    if search:
+        query = query.filter(Employee.country.ilike(f"%{search}%"))
+    return [row.country for row in query.order_by(Employee.country).limit(10).all()]
+
+
 def get_employees(
     db: Session,
     skip: int = 0,
