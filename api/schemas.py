@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, field_validator
-from models import EmploymentType
+from models import EmploymentType, Gender
 
 
 class EmployeeBase(BaseModel):
@@ -10,6 +10,7 @@ class EmployeeBase(BaseModel):
     department: str
     country: str
     salary: float
+    gender: Gender
     employment_type: EmploymentType
 
     @field_validator("salary")
@@ -30,6 +31,7 @@ class EmployeeUpdate(BaseModel):
     department: Optional[str] = None
     country: Optional[str] = None
     salary: Optional[float] = None
+    gender: Optional[Gender] = None
     employment_type: Optional[EmploymentType] = None
 
     @field_validator("salary")
