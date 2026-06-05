@@ -20,6 +20,18 @@ The application follows a standard three-tier architecture, fully decoupled:
 
 ---
 
+## Tradeoffs
+
+![Technical Tradeoffs](./docs/TRADEOFFS.md)
+
+---
+
+## Performance Considerations
+
+![Considerations](./docs/PERFORMANCE.md)
+
+---
+
 ## Getting Started
 
 ### Prerequisites
