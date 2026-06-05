@@ -1,0 +1,93 @@
+<svg width="680" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>ACME HR technical architecture</title>
+  <desc>Three-tier architecture: React frontend on port 5173, FastAPI backend on port 8000, SQLite database file</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ── Browser / React ── -->
+  <rect x="40" y="30" width="180" height="200" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="130" y="58" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#3C3489">Browser</text>
+
+  <rect x="56" y="72" width="148" height="44" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="130" y="91" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#26215C">Employees page</text>
+  <text x="130" y="107" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#534AB7">CRUD table + forms</text>
+
+  <rect x="56" y="130" width="148" height="44" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="130" y="149" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#26215C">Insights page</text>
+  <text x="130" y="165" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#534AB7">Charts + metrics</text>
+
+  <rect x="56" y="188" width="148" height="30" rx="6" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="130" y="203" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#444441">React + Vite · port 5173</text>
+
+  <!-- REST arrows -->
+  <line x1="220" y1="128" x2="268" y2="128" stroke="#7F77DD" stroke-width="1.2" marker-end="url(#arrow-purple)"/>
+  <line x1="270" y1="142" x2="222" y2="142" stroke="#888780" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="245" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#888780">REST</text>
+
+  <!-- ── FastAPI ── -->
+  <rect x="270" y="30" width="180" height="200" rx="14" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="360" y="58" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#085041">FastAPI backend</text>
+
+  <rect x="286" y="72" width="148" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="360" y="91" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#04342C">/employees</text>
+  <text x="360" y="107" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#085041">CRUD endpoints</text>
+
+  <rect x="286" y="130" width="148" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="360" y="149" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#04342C">/insights</text>
+  <text x="360" y="165" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#085041">Aggregation queries</text>
+
+  <rect x="286" y="188" width="148" height="30" rx="6" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="360" y="203" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#444441">Uvicorn · port 8000</text>
+
+  <!-- SQL arrows -->
+  <line x1="450" y1="128" x2="488" y2="128" stroke="#1D9E75" stroke-width="1.2" marker-end="url(#arrow-teal)"/>
+  <line x1="490" y1="142" x2="452" y2="142" stroke="#888780" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="470" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#888780">SQL</text>
+
+  <!-- ── SQLite ── -->
+  <rect x="490" y="30" width="154" height="200" rx="14" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="567" y="58" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#633806">SQLite</text>
+
+  <rect x="506" y="72" width="122" height="44" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="567" y="91" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#412402">employees</text>
+  <text x="567" y="107" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#633806">10,000 rows</text>
+
+  <rect x="506" y="130" width="122" height="44" rx="8" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="567" y="149" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#2C2C2A">SQLAlchemy</text>
+  <text x="567" y="165" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#5F5E5A">ORM layer</text>
+
+  <rect x="506" y="188" width="122" height="30" rx="6" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="567" y="203" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#444441">acme.db (file)</text>
+
+  <!-- ── Local machine boundary ── -->
+  <rect x="40" y="268" width="604" height="118" rx="12" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="5 4"/>
+  <text x="56" y="287" font-family="system-ui,sans-serif" font-size="11" fill="#888780">Local machine</text>
+
+  <rect x="56" y="296" width="130" height="36" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="121" y="314" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#5F5E5A">seed.py (10k rows)</text>
+
+  <rect x="206" y="296" width="130" height="36" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="271" y="314" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#5F5E5A">pytest test suite</text>
+
+  <rect x="356" y="296" width="130" height="36" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="421" y="314" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#5F5E5A">Pydantic schemas</text>
+
+  <rect x="506" y="296" width="122" height="36" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="567" y="314" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="11" fill="#5F5E5A">CORS enabled</text>
+
+  <!-- dashed connectors to bottom section -->
+  <line x1="130" y1="230" x2="130" y2="266" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <line x1="360" y1="230" x2="271" y2="266" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <line x1="360" y1="230" x2="421" y2="266" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <line x1="567" y1="230" x2="567" y2="266" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+</svg>
