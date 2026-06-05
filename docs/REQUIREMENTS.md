@@ -24,6 +24,7 @@ Replace Excel-based salary management for ACME org's 10,000 employees with a web
 | Full Name | String | Required |
 | Job Title | String | Required |
 | Department | String | Required |
+| Gender | String | Required |
 | Country | String | Required |
 | Salary | Number | Stored as numeric value |
 | Employment Type | Enum | Full-time / Part-time / Contract |
