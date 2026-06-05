@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getEmployees, createEmployee, updateEmployee, deleteEmployee } from '@/api/employees'
+import { getEmployees, getCountries, createEmployee, updateEmployee, deleteEmployee } from '@/api/employees'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import Combobox from '@/components/Combobox'
 
 const LIMIT = 50
 
@@ -147,10 +148,11 @@ export default function Employees() {
           onChange={(e) => { setSearch(e.target.value); resetToPage1() }}
           className="max-w-xs"
         />
-        <Input
+        <Combobox
           placeholder="Filter by country…"
           value={countryFilter}
-          onChange={(e) => { setCountryFilter(e.target.value); resetToPage1() }}
+          onValueChange={(v) => { setCountryFilter(v); resetToPage1() }}
+          fetchOptions={(q) => getCountries(q).then((r) => r.data)}
           className="max-w-xs"
         />
         <Input

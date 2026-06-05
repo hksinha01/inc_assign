@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from '@/components/Navbar'
 import Employees from '@/pages/Employees'
+import Insights from '@/pages/Insights'
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
         <main className="max-w-7xl mx-auto px-6 py-8">
           <Routes>
             <Route path="/" element={<Employees />} />
-            <Route path="/insights" element={<div className="text-gray-400">Insights coming soon</div>} />
+            <Route path="/insights" element={<Insights />} />
           </Routes>
         </main>
       </div>
