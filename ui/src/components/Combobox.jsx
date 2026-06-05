@@ -38,30 +38,37 @@ export default function Combobox({ value, onValueChange, fetchOptions, placehold
     setOpen(false)
   }
 
-  const clear = (e) => {
-    e.stopPropagation()
+  const clear = () => {
     onValueChange('')
+    setQuery('')
+    setOptions([])
   }
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          className={`justify-between font-normal ${className || ''}`}
-        >
-          <span className={value ? '' : 'text-muted-foreground'}>
-            {value || placeholder}
-          </span>
-          <div className="flex items-center gap-1 ml-2">
-            {value && (
-              <X className="h-3 w-3 text-muted-foreground hover:text-foreground" onClick={clear} />
-            )}
-            <ChevronsUpDown className="h-4 w-4 text-muted-foreground" />
-          </div>
-        </Button>
-      </PopoverTrigger>
+      <div className={`relative inline-flex ${className || ''}`}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            className={`justify-between font-normal w-full ${className || ''}`}
+          >
+            <span className={value ? '' : 'text-muted-foreground'}>
+              {value || placeholder}
+            </span>
+            <ChevronsUpDown className="h-4 w-4 text-muted-foreground ml-2 shrink-0" />
+          </Button>
+        </PopoverTrigger>
+        {value && (
+          <button
+            type="button"
+            onClick={clear}
+            className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-muted-foreground hover:text-foreground"
+          >
+            <X className="h-3 w-3" />
+          </button>
+        )}
+      </div>
       <PopoverContent className="w-[240px] p-0">
         <Command>
           <CommandInput

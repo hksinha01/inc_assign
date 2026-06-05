@@ -153,7 +153,7 @@ export default function Employees() {
           value={countryFilter}
           onValueChange={(v) => { setCountryFilter(v); resetToPage1() }}
           fetchOptions={(q) => getCountries(q).then((r) => r.data)}
-          className="max-w-xs"
+          className="w-52"
         />
         <Input
           placeholder="Filter by job title…"
