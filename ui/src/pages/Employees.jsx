@@ -9,6 +9,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
+  DialogFooter,
 } from '@/components/ui/dialog'
 import {
   Select,
@@ -47,6 +49,7 @@ export default function Employees() {
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(EMPTY_FORM)
   const [saving, setSaving] = useState(false)
+  const [deleteTarget, setDeleteTarget] = useState(null)
 
   const totalPages = Math.ceil(total / LIMIT)
 
@@ -94,12 +97,13 @@ export default function Employees() {
     setDialogOpen(true)
   }
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Delete this employee?')) return
+  const handleDelete = async () => {
     try {
-      await deleteEmployee(id)
+      await deleteEmployee(deleteTarget.id)
+      setDeleteTarget(null)
       fetchEmployees()
     } catch {
+      setDeleteTarget(null)
       alert('Failed to delete employee.')
     }
   }
@@ -205,7 +209,7 @@ export default function Employees() {
                 <td className="px-4 py-3">
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline" onClick={() => openEdit(emp)}>Edit</Button>
-                    <Button size="sm" variant="destructive" onClick={() => handleDelete(emp.id)}>Delete</Button>
+                    <Button size="sm" variant="destructive" onClick={() => setDeleteTarget(emp)}>Delete</Button>
                   </div>
                 </td>
               </tr>
@@ -228,6 +232,22 @@ export default function Employees() {
           </div>
         </div>
       )}
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={!!deleteTarget} onOpenChange={(open) => { if (!open) setDeleteTarget(null) }}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Delete Employee</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete <span className="font-medium text-gray-900">{deleteTarget?.full_name}</span>? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-2">
+            <Button variant="outline" onClick={() => setDeleteTarget(null)}>Cancel</Button>
+            <Button variant="destructive" onClick={handleDelete}>Delete</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Add / Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
